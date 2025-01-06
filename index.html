@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <base href=".">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventanas Premium | Fabricación y Montaje de Ventanas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="img/logo.png" alt="" class="trinidad-logo">
+                    Ventanas Trinidad
+                </div>
+                <div class="authorized-dealer">
+                    <img src="img/logo-kommerling-transparent.png" alt="Kommerling Logo" class="kommerling-logo">
+                    <span>Distribuidores Autorizados</span>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                </svg>
+            </button>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#productos">Productos</a>
+                <a href="#galeria">Galería</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#quote-modal">Solicitar Presupuesto</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ventanas de Aluminio y PVC</h1>
+            <p>Calidad, innovación y eficiencia energética para tu hogar</p>
+            <a href="https://wa.me/1234567890" class="cta-button">Solicitar Presupuesto</a>
+        </div>
+    </section>
+
+    <section class="services" id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <svg viewBox="0 0 24 24" fill="#3498db">
+                    <path d="M21,3H3C2.4,3,2,3.4,2,4v16c0,0.6,0.4,1,1,1h18c0.6,0,1-0.4,1-1V4C22,3.4,21.6,3,21,3z M20,19H4V5h16V19z"/>
+                </svg>
+                <h3>Fabricación a Medida</h3>
+                <p>Ventanas personalizadas según tus necesidades exactas</p>
+            </div>
+            <div class="service-card">
+                <svg viewBox="0 0 24 24" fill="#3498db">
+                    <path d="M14.7,6.3l-1.4,1.4l2.3,2.3H7v2h8.6l-2.3,2.3l1.4,1.4L19.7,12L14.7,6.3z"/>
+                </svg>
+                <h3>Instalación Profesional</h3>
+                <p>Montaje experto con garantía de calidad</p>
+            </div>
+            <div class="service-card">
+                <svg viewBox="0 0 24 24" fill="#3498db">
+                    <path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10-4.5-10-10-10z M12,20c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S16.4,20,12,20z"/>
+                    <path d="M12,6c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S15.3,6,12,6z"/>
+                </svg>
+                <h3>Asesoramiento Técnico</h3>
+                <p>Te ayudamos a elegir la mejor solución</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="galeria">
+        <h2>Nuestra Galería</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c" alt="Ventana 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1497366672149-e5e4b4d34eb3" alt="Ventana 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2" alt="Ventana 3">
+                </div>
+            </div>
+            <button class="carousel-btn prev">&#x276e;</button>
+            <button class="carousel-btn next">&#x276f;</button>
+        </div>
+        <button class="view-gallery-btn">Ver Galería Completa</button>
+
+        <div class="gallery-modal">
+            <button class="modal-close">&#xd7;</button>
+            <div class="gallery-modal-content">
+                <!-- Gallery items will be inserted here via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <div class="contact-icons">
+        <a href="tel:+34123456789" class="contact-icon phone">
+            <svg viewBox="0 0 24 24" fill="white">
+                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+            </svg>
+        </a>
+        <a href="mailto:info@ventanaspro.com" class="contact-icon email">
+            <svg viewBox="0 0 24 24" fill="white">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+        </a>
+        <a href="https://wa.me/34123456789" class="contact-icon whatsapp">
+            <svg viewBox="0 0 24 24" fill="white">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="quote-modal">
+        <div class="quote-form">
+            <span class="close">&#xd7;</span>
+            <h2>Solicitar Presupuesto</h2>
+            <form id="quote-form">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Dirección</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción del Proyecto</label>
+                    <textarea id="description" name="description" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Solicitud</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Nuestras Tiendas</h3>
+                <div class="store-maps">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.5!2d-3.7!3d40.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228a3f97e3c45%3A0x5d9f1b7301920519!2sAvenida%20Men%C3%A9ndez%20Pelayo%2047%2C%2028009%20Madrid!5e0!3m2!1sen!2ses!4v1234567890" width="100%" height="200" style="border:0;" allowfullscreen loading="lazy">
+                        </iframe>
+                        <div class="store-info">
+                            <h4>Tienda Madrid Norte:</h4>
+                            <p>Avenida Menéndez Pelayo 47</p>
+                            <p>28009 Madrid</p>
+                            <p>Tel: 669 92 90 73</p>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.5!2d-3.7!3d40.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228a3f97e3c45%3A0x5d9f1b7301920519!2sJosu%C3%A9%20Lillo%2010%2C%20Madrid!5e0!3m2!1sen!2ses!4v1234567890" width="100%" height="200" style="border:0;" allowfullscreen loading="lazy">
+                        </iframe>
+                        <div class="store-info">
+                            <h4>Tienda Madrid Sur:</h4>
+                            <p>Calle Josué Lillo 10</p>
+                            <p>28021 Madrid</p>
+                            <p>Tel: 669 92 90 73</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <div class="quick-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#servicios">Servicios</a>
+                    <a href="#productos">Productos</a>
+                    <a href="#galeria">Galería</a>
+                    <a href="tel:+34123456789">Teléfono</a>
+                    <a href="mailto:info@ventanaspro.com">Email</a>
+                    <a href="https://wa.me/34123456789">WhatsApp</a>
+                    <a href="#quote-modal">Presupuesto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
