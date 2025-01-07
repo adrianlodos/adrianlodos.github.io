@@ -42,6 +42,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+    justify-content: center; /* Centrar el contenido */
 }
 
 .logo {
@@ -465,38 +466,84 @@ body {
         grid-template-columns: 1fr 1fr;
     }
 }
-
-@media (max-width: 768px) {
+/* Ajustes para centrar el header en dispositivos grandes */
+@media (min-width: 768px) {
     .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
+        display: flex;
+        justify-content: center; /* Centrar elementos horizontalmente */
+        align-items: center;
+        flex-wrap: nowrap; /* Evitar que los elementos bajen de línea */
     }
 
     .logo-container {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .logo {
-        font-size: 1.2rem;
-    }
-
-    .logo svg {
-        width: 20px;
-        height: 20px;
+        display: flex;
+        flex-direction: row; /* Asegurar que los elementos estén en fila */
+        justify-content: center;
+        align-items: center;
     }
 
     .authorized-dealer {
-        display: none;
+        display: flex; /* Asegurar que sea visible en pantallas grandes */
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0; /* Eliminar el padding */
+    }
+
+    .nav-container {
+        flex-direction: column; /* Apilar los elementos verticalmente */
+        align-items: flex-start; /* Alinear los elementos a la izquierda */
+        position: relative; /* Permitir posicionamiento absoluto del botón */
+    }
+
+    .logo-container {
+        flex-direction: column; /* Apilar los elementos verticalmente */
+        align-items: center; /* Centrar los elementos horizontalmente */
+    }
+
+    .logo {
+        font-size: 1rem; /* Reducir el tamaño de la fuente */
+    }
+
+    .logo svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .authorized-dealer {
+        font-size: 0.75rem; /* Reducir el tamaño de la fuente */
+    }
+
+    .authorized-dealer img {
+        height: 25px;
+        width: auto;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        position: absolute; /* Posicionamiento absoluto */
+        top: 50%; /* Centrar verticalmente */
+        right: 1rem; /* Alinear a la derecha */
+        transform: translateY(-50%); /* Ajustar la posición vertical */
+        z-index: 1001; /* Asegurar que esté por encima del menú */
     }
 
     .nav-links {
         display: none; /* Ocultar el menú por defecto */
         width: 100%;
         right: auto;
-        position: static;
+        position: absolute; /* Posicionamiento absoluto */
+        top: 100%; /* Debajo del header */
+        left: 0;
+        background: var(--primary);
+        padding: 1rem;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         flex-direction: column;
         align-items: center;
+        z-index: 1000; /* Asegurar que esté por debajo del botón */
     }
 
     .nav-links.show {
@@ -506,13 +553,6 @@ body {
     .nav-links a {
         width: 100%;
         text-align: center;
-    }
-
-    .mobile-menu-btn {
-        display: block;
-        position: absolute;
-        top: 0.8rem;
-        right: 1rem;
     }
 
     .hero {
@@ -606,7 +646,6 @@ body {
 .submit-btn:hover {
     background: #2980b9;
 }
-
 
 .trinidad-logo {
     width: 50px;
