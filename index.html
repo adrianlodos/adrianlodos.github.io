@@ -21,29 +21,36 @@
                     <span>Distribuidores Autorizados</span>
                 </div>
             </div>
-            <button class="mobile-menu-btn">
-                <svg viewBox="0 0 24 24">
-                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                </svg>
-            </button>
-            <div class="nav-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#productos">Productos</a>
-                <a href="#galeria">Galería</a>
-                <a href="#contacto">Contacto</a>
-                <a href="#quote-modal">Solicitar Presupuesto</a>
-            </div>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Ventanas de Aluminio y PVC</h1>
-            <p>Calidad, innovación y eficiencia energética para tu hogar</p>
-            <a href="https://wa.me/1234567890" class="cta-button">Solicitar Presupuesto</a>
+    <section class="hero-slider">
+        <div class="slider-container">
+            <!-- Slide 1: Hero -->
+            <div class="slide">
+                <div class="hero-content">
+                    <h1>Ventanas de Aluminio y PVC</h1>
+                    <p>Calidad, innovación y eficiencia energética para tu hogar</p>
+                    <a href="https://wa.me/1234567890" class="cta-button">Solicitar Presupuesto</a>
+                </div>
+            </div>
+    
+            <!-- Slide 2: Plan Renove -->
+            <div class="slide">
+                <div class="renove-content">
+                    <h2>¡Aprovecha el Plan Renove de Ventanas 2025!</h2>
+                    <p>La Comunidad de Madrid ofrece ayudas de hasta <strong>3.000€</strong> para renovar las ventanas de tu vivienda.</p>
+                    <p>Mejora la eficiencia energética de tu hogar, reduce tu consumo energético y vive con mayor confort térmico.</p>
+                    <a href="#contacto" class="highlight-button">Solicita tu Presupuesto Gratis</a>
+                </div>
+            </div>
         </div>
+    
+        <!-- Controles del Slider -->
+        <button class="slider-btn prev">&#10094;</button>
+        <button class="slider-btn next">&#10095;</button>
     </section>
+    
 
     <section class="services" id="servicios">
         <h2>Nuestros Servicios</h2>
@@ -86,6 +93,21 @@
                 <div class="carousel-item">
                     <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2" alt="Ventana 3">
                 </div>
+                <div class="carousel-item">
+                    <img src="img/proyecto1.jpg" alt="Ventana 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/proyecto2.jpg" alt="Ventana 5">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/proyecto3.jpg" alt="Ventana 6">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/proyecto4.jpg" alt="Ventana 7">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/proyecto5.jpg" alt="Ventana 8">
+                </div>
             </div>
             <button class="carousel-btn prev">&#x276e;</button>
             <button class="carousel-btn next">&#x276f;</button>
@@ -101,17 +123,17 @@
     </section>
 
     <div class="contact-icons">
-        <a href="tel:+34123456789" class="contact-icon phone">
+        <a href="tel:+34 669 92 90 73" class="contact-icon phone">
             <svg viewBox="0 0 24 24" fill="white">
                 <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
             </svg>
         </a>
-        <a href="mailto:info@ventanaspro.com" class="contact-icon email">
+        <a href="mailto:trinidad.ventanas@gmail.com" class="contact-icon email">
             <svg viewBox="0 0 24 24" fill="white">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
             </svg>
         </a>
-        <a href="https://wa.me/34123456789" class="contact-icon whatsapp">
+        <a href="https://wa.me/+34 669 92 90 73" class="contact-icon whatsapp">
             <svg viewBox="0 0 24 24" fill="white">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
             </svg>
@@ -122,7 +144,7 @@
         <div class="quote-form">
             <span class="close">&#xd7;</span>
             <h2>Solicitar Presupuesto</h2>
-            <form id="quote-form">
+            <form id="quote-form" action="sendEmail.php" method="POST">
                 <div class="form-group">
                     <label for="name">Nombre</label>
                     <input type="text" id="name" name="name" required>
@@ -174,19 +196,6 @@
                             <p>Tel: 669 92 90 73</p>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Enlaces Rápidos</h3>
-                <div class="quick-links">
-                    <a href="#inicio">Inicio</a>
-                    <a href="#servicios">Servicios</a>
-                    <a href="#productos">Productos</a>
-                    <a href="#galeria">Galería</a>
-                    <a href="tel:+34123456789">Teléfono</a>
-                    <a href="mailto:info@ventanaspro.com">Email</a>
-                    <a href="https://wa.me/34123456789">WhatsApp</a>
-                    <a href="#quote-modal">Presupuesto</a>
                 </div>
             </div>
         </div>

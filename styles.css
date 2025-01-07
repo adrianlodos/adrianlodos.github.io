@@ -89,21 +89,24 @@ body {
     width: auto;
 }
 
+/* Estilos para el menú móvil */
 .nav-links {
     display: none;
     position: absolute;
     top: 100%;
-    right: 0;
+    left: 0;
+    right: 0; /* Asegura que ocupe todo el ancho */
     background: var(--primary);
     padding: 1rem;
     border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
 .nav-links.show {
-    display: block;
+    display: flex !important; /* Forzar visualización */
+    flex-direction: column;
+    width: 100%;
 }
 
 .nav-links a {
@@ -117,25 +120,6 @@ body {
 
 .nav-links a:hover {
     background: rgba(255,255,255,0.1);
-}
-
-.mobile-menu-btn {
-    display: none;
-    background: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    padding: 0.5rem;
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.mobile-menu-btn svg {
-    width: 24px;
-    height: 24px;
-    fill: white;
 }
 
 .hero {
@@ -491,11 +475,11 @@ body {
     .header {
         padding: 0; /* Eliminar el padding */
     }
-
     .nav-container {
-        flex-direction: column; /* Apilar los elementos verticalmente */
-        align-items: flex-start; /* Alinear los elementos a la izquierda */
-        position: relative; /* Permitir posicionamiento absoluto del botón */
+        display: flex;
+        justify-content: center; /* Centrar elementos horizontalmente */
+        align-items: center;
+        flex-wrap: nowrap; /* Evitar que los elementos bajen de línea */
     }
 
     .logo-container {
@@ -521,38 +505,28 @@ body {
         width: auto;
     }
 
-    .mobile-menu-btn {
-        display: block;
-        position: absolute; /* Posicionamiento absoluto */
-        top: 50%; /* Centrar verticalmente */
-        right: 1rem; /* Alinear a la derecha */
-        transform: translateY(-50%); /* Ajustar la posición vertical */
-        z-index: 1001; /* Asegurar que esté por encima del menú */
+    .nav-container {
+        padding: 1rem;
+        position: relative;
     }
 
     .nav-links {
-        display: none; /* Ocultar el menú por defecto */
-        width: 100%;
-        right: auto;
-        position: absolute; /* Posicionamiento absoluto */
-        top: 100%; /* Debajo del header */
-        left: 0;
         background: var(--primary);
-        padding: 1rem;
-        border-radius: 0 0 8px 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        flex-direction: column;
-        align-items: center;
-        z-index: 1000; /* Asegurar que esté por debajo del botón */
-    }
-
-    .nav-links.show {
-        display: flex; /* Mostrar el menú cuando se hace clic en el botón de hamburguesa */
+        width: 100%;
     }
 
     .nav-links a {
-        width: 100%;
-        text-align: center;
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links.show {
+        display: flex;
+        flex-direction: column;
     }
 
     .hero {
@@ -650,4 +624,75 @@ body {
 .trinidad-logo {
     width: 50px;
     height: 50px;
+}
+
+/* Slider general */
+.hero-slider {
+    position: relative;
+    overflow: hidden;
+    height: 80vh;
+    background: #000; /* Fondo general del slider */
+    width: 100%; /* Asegura que el slider ocupe todo el ancho de la pantalla */
+    margin: 0 auto; /* Centra el slider */
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 200%; /* Doble para dos slides */
+    height: 100%;
+}
+
+.slide {
+    width: 50%; /* Cada slide ocupa el 50% del contenedor */
+    flex: 1 0 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content, .renove-content {
+    max-width: 800px;
+    padding: 20px;
+}
+
+/* Fondo de las slides */
+.slide:nth-child(1) {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1500') center/cover;
+}
+
+.slide:nth-child(2) {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1552611052-bd74757a057f?auto=format&fit=crop&w=1500') center/cover;
+}
+
+/* Botones de navegación */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.slider-btn.prev {
+    left: 20px;
+}
+
+.slider-btn.next {
+    right: 20px;
+}
+
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
