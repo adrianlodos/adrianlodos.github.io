@@ -630,7 +630,7 @@ body {
 .hero-slider {
     position: relative;
     overflow: hidden;
-    height: 80vh;
+    height: 100vh;
     background: #000; /* Fondo general del slider */
     width: 100%; /* Asegura que el slider ocupe todo el ancho de la pantalla */
     margin: 0 auto; /* Centra el slider */
@@ -695,4 +695,100 @@ body {
 
 .slider-btn:hover {
     background: rgba(0, 0, 0, 0.8);
+}
+/* Fondo de las slides */
+.slide:nth-child(1) {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1500') center/cover;
+}
+
+.slide:nth-child(2) {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/slider1.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.renove-content {
+    max-width: 800px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-top: 40px;
+}
+
+.renove-icon {
+    margin-bottom: 20px;
+}
+
+.renove-icon svg {
+    width: 80px;
+    height: 80px;
+}
+
+.renove-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #3498db;
+}
+
+.renove-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #ecf0f1;
+}
+
+.highlight-button {
+    background: #3498db;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.highlight-button:hover {
+    background: #2980b9;
+}
+/* Estilos para la nueva sección del Plan Renove */
+.plan-renove {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    border-top: 2px solid #3498db;
+    text-align: center;
+}
+
+.plan-renove h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #3498db;
+}
+
+.plan-renove p,
+.plan-renove ul {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.plan-renove h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.plan-renove ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+}
+
+.plan-renove ul li {
+    margin-bottom: 0.5rem;
 }

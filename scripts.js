@@ -18,7 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
         'img/proyecto2.jpg',
         'img/proyecto3.jpg',
         'img/proyecto4.jpg',
-        'img/proyecto5.jpg'
+        'img/proyecto5.jpg',
+        'img/proyecto6.jpg',
+        'img/proyecto7.jpg',
+        'img/proyecto8.jpg',
+        'img/proyecto9.jpg',
+        'img/proyecto10.jpg'
     ];
 
     // Cargar imágenes en la galería modal
@@ -104,58 +109,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inicialización del carrusel
     const carousel = document.querySelector('.carousel');
-    const prevBtn = document.querySelector('.carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-btn.next');
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-item');
+    const carouselPrevBtn = document.querySelector('.carousel-btn.prev');
+    const carouselNextBtn = document.querySelector('.carousel-btn.next');
+    let currentCarouselSlide = 0;
+    const carouselSlides = document.querySelectorAll('.carousel-item');
 
-    if (carousel && prevBtn && nextBtn && slides.length > 0) {
+    if (carousel && carouselPrevBtn && carouselNextBtn && carouselSlides.length > 0) {
         // Función para mover el carrusel
-        const moveToSlide = (slide) => {
+        const moveToCarouselSlide = (slide) => {
             carousel.style.transform = `translateX(-${slide * 100}%)`;
         };
 
         // Event listeners para los botones
-        prevBtn.addEventListener('click', () => {
-            currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
-            moveToSlide(currentSlide);
+        carouselPrevBtn.addEventListener('click', () => {
+            currentCarouselSlide = currentCarouselSlide > 0 ? currentCarouselSlide - 1 : carouselSlides.length - 1;
+            moveToCarouselSlide(currentCarouselSlide);
         });
 
-        nextBtn.addEventListener('click', () => {
-            currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
-            moveToSlide(currentSlide);
+        carouselNextBtn.addEventListener('click', () => {
+            currentCarouselSlide = currentCarouselSlide < carouselSlides.length - 1 ? currentCarouselSlide + 1 : 0;
+            moveToCarouselSlide(currentCarouselSlide);
         });
 
         // Auto-play del carrusel
         setInterval(() => {
-            currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
-            moveToSlide(currentSlide);
+            currentCarouselSlide = currentCarouselSlide < carouselSlides.length - 1 ? currentCarouselSlide + 1 : 0;
+            moveToCarouselSlide(currentCarouselSlide);
         }, 3000);
     }
 
     // Inicialización del slider principal
     const sliderContainer = document.querySelector('.slider-container');
     const heroSlides = document.querySelectorAll('.slide');
-    let currentIndex = 0;
+    const heroPrevBtn = document.querySelector('.slider-btn.prev');
+    const heroNextBtn = document.querySelector('.slider-btn.next');
+    let currentHeroIndex = 0;
 
-    function updateSlider() {
-        const offset = currentIndex * -50; // Mueve el slider
+    function updateHeroSlider() {
+        const offset = currentHeroIndex * -50; // Mueve el slider
         sliderContainer.style.transform = `translateX(${offset}%)`;
     }
 
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex === 0) ? heroSlides.length - 1 : currentIndex - 1;
-        updateSlider();
+    heroPrevBtn.addEventListener('click', () => {
+        currentHeroIndex = (currentHeroIndex === 0) ? heroSlides.length - 1 : currentHeroIndex - 1;
+        updateHeroSlider();
     });
 
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex === heroSlides.length - 1) ? 0 : currentIndex + 1;
-        updateSlider();
+    heroNextBtn.addEventListener('click', () => {
+        currentHeroIndex = (currentHeroIndex === heroSlides.length - 1) ? 0 : currentHeroIndex + 1;
+        updateHeroSlider();
     });
 
     // Auto-Slide (opcional)
     setInterval(() => {
-        currentIndex = (currentIndex === heroSlides.length - 1) ? 0 : currentIndex + 1;
-        updateSlider();
+        currentHeroIndex = (currentHeroIndex === heroSlides.length - 1) ? 0 : currentHeroIndex + 1;
+        updateHeroSlider();
     }, 5000); // Cambia cada 5 segundos
 });
