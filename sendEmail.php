@@ -4,12 +4,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $to = "trinidad.ventanas@gmail.com";
     $subject = "Solicitud de Presupuesto desde Ventanas Trinidad";
 
-    // Recopilar los datos del formulario
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $phone = htmlspecialchars($_POST['phone']);
-    $address = htmlspecialchars($_POST['address']);
-    $description = htmlspecialchars($_POST['description']);
+    // Recopilar y sanitizar los datos del formulario
+    $name = isset($_POST['name']) ? htmlspecialchars(strip_tags(trim($_POST['name']))) : '';
+    $email = isset($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL) : '';
+    $phone = isset($_POST['phone']) ? htmlspecialchars(strip_tags(trim($_POST['phone']))) : '';
+    $address = isset($_POST['address']) ? htmlspecialchars(strip_tags(trim($_POST['address']))) : '';
+    $description = isset($_POST['description']) ? htmlspecialchars(strip_tags(trim($_POST['description']))) : '';
+
+    // Validar que todos los campos necesarios estén presentes
+    if (empty($name) || empty($email) || empty($phone) || empty($address) || empty($description)) {
+        echo "error: Todos los campos son obligatorios.";
+        exit;
+    }
+
+    // Validar el formato del correo electrónico
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "error: Dirección de correo electrónico no válida.";
+        exit;
+    }
 
     // Cuerpo del correo
     $message = "Nombre: $name\n";
@@ -21,14 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Cabeceras del correo
     $headers = "From: $email\r\n";
     $headers .= "Reply-To: $email\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
 
     // Enviar correo
     if (mail($to, $subject, $message, $headers)) {
         echo "success";
     } else {
-        echo "error";
+        echo "error: No se pudo enviar el correo.";
     }
 } else {
-    echo "Invalid request method.";
+    echo "error: Método de solicitud no válido.";
 }
 ?>
