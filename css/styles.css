@@ -43,6 +43,7 @@ body {
   letter-spacing: 1px;
   margin: 0;
   line-height: 1;
+  text-align: center;
 }
 
 .distribuidor-tagline {
@@ -67,12 +68,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 150px;
+  width: 150px; /* Asegura que ambos contenedores tengan el mismo ancho */
+  height: 80px; /* Asegura que ambos contenedores tengan la misma altura */
 }
 
 .company-logo {
-  width: auto; /* Ajusta automáticamente el ancho para mantener la proporción */
-  height: 60px; /* Aumenta el height en 10px */
+  width: 80%; /* Asegura que el logo ocupe todo el ancho del contenedor */
+  height: auto; /* Mantiene la proporción del logo */
+  max-width: 100%; /* Limita el ancho máximo del logo */
+  max-height: 100%; /* Limita la altura máxima del logo */
 }
 
 .logo-box:hover {
@@ -199,7 +203,7 @@ body {
 .floating-buttons {
   position: fixed;
   right: 20px;
-  top: 70%;
+  top: 80%;
   transform: translateY(-50%);
   z-index: 1000;
   display: flex;
@@ -215,8 +219,8 @@ body {
 }
 
 .floating-button {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -290,11 +294,12 @@ section.animate__fadeIn {
 
   .logo-container {
     flex-direction: row; /* Cambiar a horizontal */
-    gap: 10px; /* Ajustar el espacio entre los elementos */
+    gap: 70px; /* Ajustar el espacio entre los elementos */
   }
 
   .company-name-container {
     flex-direction: column; /* Mantener los nombres en columna */
+    text-align: center;
   }
 
   .company-name {
@@ -303,11 +308,19 @@ section.animate__fadeIn {
 
   .distribuidor-tagline {
     font-size: 16px; /* Ajustar el tamaño del tagline */
+    text-align: center;
   }
 
   .logo-box {
-    min-width: auto; /* Ajustar el ancho mínimo del logo-box */
-    padding: 5px 10px; /* Ajustar el padding del logo-box */
+    width: 110px; /* Asegura que ambos contenedores tengan el mismo ancho */
+    height: 80px; /* Asegura que ambos contenedores tengan la misma altura */
+  }
+
+  .logo-box .company-logo {
+    width: 100%; /* Asegura que el logo ocupe todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción del logo */
+    max-width: 100%; /* Limita el ancho máximo del logo */
+    max-height: 100%; /* Limita la altura máxima del logo */
   }
 
   .nav-links {
@@ -332,8 +345,8 @@ section.animate__fadeIn {
   }
 
   .floating-button {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
   }
 
   .service-card {
@@ -361,6 +374,10 @@ section.animate__fadeIn {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 
+  .footer {
+    text-align: center;
+  }
+
   .footer-contact {
     margin-bottom: 20px;
   }
@@ -373,7 +390,18 @@ section.animate__fadeIn {
 
 @media (max-width: 576px) {
   .logo-box svg {
-    width: 200px;
+    width: 95px;
+  }
+
+  .logo-container {
+    gap: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .distribuidor-tagline {
+    font-size: 14px;
+    text-align: center;
   }
 
   .nav-links a {
@@ -387,8 +415,8 @@ section.animate__fadeIn {
   }
 
   .floating-button {
-    width: 35px;
-    height: 35px;
+    width: 55px;
+    height: 55px;
     font-size: 0.8rem;
   }
 
@@ -409,4 +437,206 @@ section.animate__fadeIn {
   width: 100%;
   height: 300px; /* Ajusta este valor según tus necesidades */
   object-fit: cover;
+}
+/* ... (mantener todo el CSS anterior hasta las reglas de section) ... */
+
+/* Secciones con mejor distinción visual */
+section:nth-of-type(odd) {
+  background-color: var(--section-light);
+  padding: 4rem 0;
+  position: relative;
+  box-shadow: inset 0 0 50px rgba(52, 152, 219, 0.1);
+  border-top: 1px solid rgba(52, 152, 219, 0.1);
+  border-bottom: 1px solid rgba(52, 152, 219, 0.1);
+}
+
+section:nth-of-type(even) {
+  background-color: var(--section-dark);
+  padding: 4rem 0;
+  position: relative;
+  box-shadow: inset 0 0 50px rgba(44, 62, 80, 0.1);
+  border-top: 1px solid rgba(44, 62, 80, 0.1);
+  border-bottom: 1px solid rgba(44, 62, 80, 0.1);
+}
+
+/* Efecto de degradado en los bordes de las secciones */
+section::before,
+section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+section::before {
+  top: 0;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(52, 152, 219, 0.2),
+    transparent
+  );
+}
+
+section::after {
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(52, 152, 219, 0.2),
+    transparent
+  );
+}
+
+/* Mejorar la distinción del contenido dentro de las secciones */
+section .container {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  padding: 2rem;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.1);
+}
+
+/* ... (mantener el resto del CSS hasta el footer) ... */
+
+/* Footer styles */
+footer {
+  background-color: var(--primary) !important;
+  margin-top: 2rem;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+  color: white;
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+footer .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px;
+}
+
+footer .footer-column {
+  flex: 1;
+  padding: 15px;
+  min-width: 250px;
+}
+
+footer h4 {
+  color: var(--highlight);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul li {
+  margin-bottom: 0.8rem;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--highlight);
+  text-decoration: none;
+}
+
+/* Media queries actualizados */
+@media (max-width: 768px) {
+  /* ... (mantener los media queries anteriores) ... */
+  
+  section {
+    padding: 2rem 0;
+  }
+
+  footer  {
+    text-align: center;
+  }
+
+  section .container {
+    padding: 1.5rem;
+  }
+  
+  footer .footer-column {
+    flex: 0 0 100%;
+    text-align: center;
+  }
+
+  footer ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 576px) {
+  /* ... (mantener los media queries anteriores) ... */
+
+  section {
+    padding: 1.5rem 0;
+  }
+
+  section .container {
+    padding: 1rem;
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  footer .footer-column {
+    padding: 10px;
+  }
+
+  footer h4 {
+    margin-bottom: 1rem;
+  }
+
+  footer .row {
+    margin: 0;
+  }
+
+  footer ul li {
+    margin-bottom: 0.6rem;
+  }
+
+  /* Centrar elementos de contacto en móvil */
+  footer .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+/* Añadir un borde suave alrededor de las cards de servicio */
+.service-card {
+  border: 1px solid rgba(52, 152, 219, 0.1);
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 1), 
+    rgba(255, 255, 255, 0.9)
+  );
+}
+
+/* Mejorar la distinción visual de las cards */
+.service-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
 }
