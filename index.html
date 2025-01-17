@@ -1,313 +1,464 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <base href=".">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ventanas Trinidad</title>
-  <!-- Favicon -->
-  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-  <!-- CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <link rel="stylesheet" href="css/styles.css">
+    <base href="/" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrián Lodos Trinidad - Full Stack Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
-  <!-- Particles Container -->
-  <div id="particles-js"></div>
-
-  <!-- Header -->
-  <header id="header"></header>
-
-  <!-- Hero Slider -->
-  <div class="swiper hero-slider">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&h=600&q=80')">
-          <div class="slide-content">
-            <h2>Ventanas de Calidad</h2>
-            <p>Solicita tu presupuesto personalizado</p>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#presupuestoModal">
-              Solicitar Presupuesto
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://alodos3.github.io">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/beast-ball.png" alt="ALT Logo" width="40" height="40">
+                <span>Sh4doW_Dev</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497366672149-e5e4b4d34eb3?auto=format&fit=crop&w=1200&h=600&q=80')">
-          <div class="slide-content">
-            <h2>Plan Renove</h2>
-            <p>Ahorra en tus ventanas con las ayudas disponibles</p>
-            <button class="btn btn-primary" onclick="scrollToSection('plan-renove')">
-              Más Información
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&h=600&q=80')">
-          <div class="slide-content">
-            <h2>Alunext</h2>
-            <p>La nueva generación de ventanas híbridas</p>
-            <button class="btn btn-primary" onclick="scrollToSection('alunex')">
-              Descubre Más
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
-
-  <!-- Services Section -->
-  <section class="container my-5" id="servicios">
-    <h2 class="text-center mb-4">Nuestros Servicios</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="service-card">
-          <div class="card-body text-center">
-            <i class="fas fa-window-maximize fa-3x mb-3"></i>
-            <h3>Ventanas PVC</h3>
-            <p>Máxima eficiencia energética</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-card">
-          <div class="card-body text-center">
-            <i class="fas fa-tools fa-3x mb-3"></i>
-            <h3>Instalación Profesional</h3>
-            <p>Montaje por expertos cualificados</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-card">
-          <div class="card-body text-center">
-            <i class="fas fa-hammer fa-3x mb-3"></i>
-            <h3>Mantenimiento</h3>
-            <p>Servicio técnico especializado</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Floating Buttons -->
-  <div class="floating-buttons">
-    <a href="tel:669929073" class="floating-button bg-primary">
-      <i class="fas fa-phone"></i>
-    </a>
-    <a href="mailto:trinidad.ventanas@gmail.com" class="floating-button bg-danger">
-      <i class="fas fa-envelope"></i>
-    </a>
-    <a href="https://wa.me/34669929073" class="floating-button bg-success">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-  </div>
-
-  <!-- Presupuesto Modal -->
-  <div class="modal fade" id="presupuestoModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Solicitar Presupuesto</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <form action="sendEmail.php" method="POST">
-            <div class="mb-3">
-              <label class="form-label">Nombre</label>
-              <input type="text" class="form-control" name="name" required>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" data-section="home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" data-section="about">Sobre mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#certificates" data-section="certificates">Certificados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills" data-section="skills">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" data-section="contact">Contacto</a>
+                    </li>
+                </ul>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Email</label>
-              <input type="email" class="form-control" name="email" required>
+        </div>
+    </nav>
+
+    <div id="particles-js"></div>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="assets/images/yofoto.jpg" alt="Adrián Lodos Trinidad" class="profile-img">
+            <h1 class="display-4">Adrián Lodos Trinidad</h1>
+            <h2 class="h3 mb-4"><span id="typed-text"></span></h2>
+            <div class="social-icons">
+                <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/yourusername"><i class="fab fa-twitter"></i></a>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Teléfono</label>
-              <input type="tel" class="form-control" name="phone" required>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Sobre mí</h2>
+            <div class="about-container">
+                <div class="about-text">
+                    <p class="lead">Soy un desarrollador Full Stack Junior apasionado por crear soluciones web innovadoras y funcionales. Mi objetivo es combinar creatividad y tecnología para desarrollar experiencias digitales excepcionales.</p>
+                    <p>Con experiencia en tecnologías modernas como React, Node.js y MongoDB, busco constantemente aprender y crecer en el mundo del desarrollo web. Me especializo en crear aplicaciones web escalables y mantenibles, siempre siguiendo las mejores prácticas y patrones de diseño actuales.</p>
+                    <p>Mi enfoque se centra en la calidad del código, la experiencia del usuario y el rendimiento de las aplicaciones. Disfruto trabajando en equipo y contribuyendo con soluciones creativas a los desafíos técnicos.</p>
+                </div>
+                <div class="about-cta">
+                    <a href="path/to/your/cv.pdf" class="download-cv" download>
+                        <i class="fas fa-download"></i>
+                        <span>Descargar CV</span>
+                    </a>
+                </div>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Mensaje</label>
-              <textarea class="form-control" rows="3" name="message"></textarea>
+        </div>
+    </section>
+
+    <section id="certificates" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Certificados</h2>
+            <div class="certificates-slider">
+                <div class="certificates-track">
+                    <div class="certificate-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Full Stack Development</h3>
+                        <p>Bootcamp intensivo de desarrollo web full stack con las últimas tecnologías y mejores prácticas.</p>
+                        <button class="view-cert" data-bs-toggle="modal" data-bs-target="#cert1Modal">Ver Certificado</button>
+                    </div>
+                    <div class="certificate-card">
+                        <i class="fab fa-js"></i>
+                        <h3>JavaScript Advanced</h3>
+                        <p>Curso avanzado de JavaScript incluyendo ES6+, patrones de diseño y mejores prácticas.</p>
+                        <button class="view-cert" data-bs-toggle="modal" data-bs-target="#cert2Modal">Ver Certificado</button>
+                    </div>
+                    <div class="certificate-card">
+                        <i class="fab fa-react"></i>
+                        <h3>React Specialist</h3>
+                        <p>Especialización en React.js, Redux, y desarrollo de aplicaciones modernas.</p>
+                        <button class="view-cert" data-bs-toggle="modal" data-bs-target="#cert3Modal">Ver Certificado</button>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <button class="slider-btn prev-btn">Anterior</button>
+                    <button class="slider-btn next-btn">Siguiente</button>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-          </form>
+            <div class="text-center mt-4">
+                <button class="view-all-certs" data-bs-toggle="modal" data-bs-target="#allCertsModal">
+                    Ver todos los certificados
+                    <i class="fas fa-external-link-alt ms-2"></i>
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Plan Renove Section -->
-  <section id="plan-renove" class="container my-5">
-    <h2 class="text-center mb-4">Plan Renove</h2>
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <div class="card">
-          <div class="card-body">
-            <h3>Ahorra en tus nuevas ventanas</h3>
-            <p>El Plan Renove de Ventanas ofrece ayudas de hasta 110€/m² para la renovación de ventanas antiguas por otras de alta eficiencia energética.</p>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">✔ Ahorro en calefacción y aire acondicionado</li>
-              <li class="list-group-item">✔ Mejora del aislamiento acústico</li>
-              <li class="list-group-item">✔ Reducción de emisiones CO2</li>
-            </ul>
-            <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#presupuestoModal">
-              Solicitar Información
-            </button>
-          </div>
+    <div class="modal fade" id="allCertsModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Todos mis certificados</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="cert-modal-card" style="opacity: 0; transform: translateY(20px); transition: all 0.3s ease;">
+                                <img src="https://www.svgrepo.com/show/416635/award-certificate-certification.svg" alt="Certificate" class="cert-img">
+                                <h4>Full Stack Development</h4>
+                                <p>Bootcamp intensivo de desarrollo web full stack</p>
+                                <div class="cert-details">
+                                    <span class="cert-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                                    <span class="cert-issuer"><i class="fas fa-university"></i> Digital Academy</span>
+                                    <span class="cert-duration"><i class="far fa-clock"></i> 800 horas</span>
+                                </div>
+                                <div class="cert-skills">
+                                    <span class="skill-tag">HTML5</span>
+                                    <span class="skill-tag">CSS3</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">React</span>
+                                    <span class="skill-tag">Node.js</span>
+                                </div>
+                                <a href="#" class="cert-link">Ver credencial <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="cert-modal-card" style="opacity: 0; transform: translateY(20px); transition: all 0.3s ease;">
+                                <img src="https://www.svgrepo.com/show/416636/award-certificate-certification.svg" alt="Certificate" class="cert-img">
+                                <h4>JavaScript Advanced</h4>
+                                <p>Curso avanzado de JavaScript ES6+</p>
+                                <div class="cert-details">
+                                    <span class="cert-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                                    <span class="cert-issuer"><i class="fas fa-university"></i> Code Academy</span>
+                                    <span class="cert-duration"><i class="far fa-clock"></i> 300 horas</span>
+                                </div>
+                                <div class="cert-skills">
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">ES6</span>
+                                    <span class="skill-tag">Node.js</span>
+                                </div>
+                                <a href="#" class="cert-link">Ver credencial <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="cert-modal-card" style="opacity: 0; transform: translateY(20px); transition: all 0.3s ease;">
+                                <img src="https://www.svgrepo.com/show/416637/award-certificate-certification.svg" alt="Certificate" class="cert-img">
+                                <h4>React Specialist</h4>
+                                <p>Especialización en React.js</p>
+                                <div class="cert-details">
+                                    <span class="cert-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                                    <span class="cert-issuer"><i class="fas fa-university"></i> Online Academy</span>
+                                    <span class="cert-duration"><i class="far fa-clock"></i> 200 horas</span>
+                                </div>
+                                <div class="cert-skills">
+                                    <span class="skill-tag">React</span>
+                                    <span class="skill-tag">Redux</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                </div>
+                                <a href="#" class="cert-link">Ver credencial <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
 
-  <!-- Alunex Section -->
-  <section id="alunex" class="container my-5">
-    <h2 class="text-center mb-4">Alunext - Lo mejor de dos mundos</h2>
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="card h-100">
-          <div class="card-body">
-            <h3>Tecnología Híbrida</h3>
-            <p>Alunext combina la resistencia del aluminio con el aislamiento del PVC para crear ventanas únicas:</p>
-            <ul>
-              <li>Exterior de aluminio resistente a la intemperie</li>
-              <li>Interior de PVC para máximo aislamiento</li>
-              <li>Diseño moderno y elegante</li>
-              <li>Máxima eficiencia energética</li>
-            </ul>
-          </div>
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Habilidades</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="skill-container">
+                        <div class="mb-4">
+                            <div class="skill-label">
+                                <div class="d-flex align-items-center">
+                                    <i class="fab fa-html5 skill-icon"></i>
+                                    <span>HTML/CSS</span>
+                                </div>
+                                <span class="percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90%" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="skill-label">
+                                <div class="d-flex align-items-center">
+                                    <i class="fab fa-js skill-icon"></i>
+                                    <span>JavaScript</span>
+                                </div>
+                                <span class="percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85%" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="skill-label">
+                                <div class="d-flex align-items-center">
+                                    <i class="fab fa-react skill-icon"></i>
+                                    <span>React</span>
+                                </div>
+                                <span class="percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80%" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="skill-container">
+                        <div class="mb-4">
+                            <div class="skill-label">
+                                <div class="d-flex align-items-center">
+                                    <i class="fab fa-node-js skill-icon"></i>
+                                    <span>Node.js</span>
+                                </div>
+                                <span class="percentage">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75%" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="skill-label">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-database skill-icon"></i>
+                                    <span>MongoDB</span>
+                                </div>
+                                <span class="percentage">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70%" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="skill-label">
+                                <div class="d-flex align-items-center">
+                                    <i class="fab fa-git skill-icon"></i>
+                                    <span>Git</span>
+                                </div>
+                                <span class="percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85%" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="skill-label">
+                                <div class="d-flex align-items-center">
+                                    <i class="fab fa-docker skill-icon"></i>
+                                    <span>Docker</span>
+                                </div>
+                                <span class="percentage">65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="65%" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="skill-label">
+                                <div class="d-flex align-items-center">
+                                    <i class="fab fa-aws skill-icon"></i>
+                                    <span>AWS</span>
+                                </div>
+                                <span class="percentage">60%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="60%" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="skill-label">
+                                <div class="d-flex align-items-center">
+                                    <i class="fab fa-python skill-icon"></i>
+                                    <span>Python</span>
+                                </div>
+                                <span class="percentage">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75%" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="skill-label">
+                                <div class="d-flex align-items-center">
+                                    <i class="fab fa-angular skill-icon"></i>
+                                    <span>Angular</span>
+                                </div>
+                                <span class="percentage">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70%" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="skill-label">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-server skill-icon"></i>
+                                    <span>SQL</span>
+                                </div>
+                                <span class="percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80%" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="ratio ratio-16x9">
-          <iframe src="img/alunext.mp4" title="Alunex Technology" allowfullscreen></iframe>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Contacto</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="contact-form-container">
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Nombre">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="5" placeholder="Mensaje"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Enviar mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row g-3 mt-3">
-          <div class="col-6">
-            <img src="img/alunext1.png" class="img-fluid rounded" alt="Alunex Window 1">
-          </div>
-          <div class="col-6">
-            <img src="img/alunext2.png" class="img-fluid rounded" alt="Alunex Window 2">
-          </div>
+    </section>
+
+    <div class="modal fade" id="cert1Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Full Stack Development Certificate</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div style="width: 100%; height: 500px; background: #2d3436; display: flex; align-items: center; justify-content: center;">
+                        <h3>Certificate Preview</h3>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
 
-  <!-- Gallery Section -->
-  <section id="galeria" class="container my-5">
-    <h2 class="text-center mb-4">Galería de Proyectos</h2>
-    <div class="swiper gallery-slider">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c" class="img-fluid" alt="Project 1">
+    <div class="modal fade" id="cert2Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">JavaScript Advanced Certificate</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div style="width: 100%; height: 500px; background: #2d3436; display: flex; align-items: center; justify-content: center;">
+                        <h3>Certificate Preview</h3>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1497366672149-e5e4b4d34eb3" class="img-fluid" alt="Project 2">
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72" class="img-fluid" alt="Project 3">
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72" class="img-fluid" alt="Project 6">
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1497366672149-e5e4b4d34eb3" class="img-fluid" alt="Project 7">
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c" class="img-fluid" alt="Project 8">
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1497366858526-0766cadbe8fa" class="img-fluid" alt="Project 9">
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2" class="img-fluid" alt="Project 10">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/proyecto1.jpg" class="img-fluid" alt="Project 1">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/proyecto2.jpg" class="img-fluid" alt="Project 2">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/proyecto3.jpg" class="img-fluid" alt="Project 3">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/proyecto4.jpg" class="img-fluid" alt="Project 4">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/proyecto5.jpg" class="img-fluid" alt="Project 5">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/proyecto6.jpg" class="img-fluid" alt="Project 6">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/proyecto7.jpg" class="img-fluid" alt="Project 7">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/proyecto8.jpg" class="img-fluid" alt="Project 8">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/proyecto9.jpg" class="img-fluid" alt="Project 9">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/proyecto10.jpg" class="img-fluid" alt="Project 10">
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
     </div>
-    <div class="text-center mt-4">
-      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#galleryModal">
-        Ver Galería Completa
-      </button>
-    </div>
-  </section>
 
-  <!-- Gallery Modal -->
-  <div class="modal fade" id="galleryModal" tabindex="-1">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Galería de Proyectos</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    <div class="modal fade" id="cert3Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">React Specialist Certificate</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div style="width: 100%; height: 500px; background: #2d3436; display: flex; align-items: center; justify-content: center;">
+                        <h3>Certificate Preview</h3>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <div class="modal-gallery">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c" alt="Project 1">
-            <img src="https://images.unsplash.com/photo-1497366672149-e5e4b4d34eb3" alt="Project 2">
-            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72" alt="Project 3">
-            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72" alt="Project 6">
-            <img src="https://images.unsplash.com/photo-1497366672149-e5e4b4d34eb3" alt="Project 7">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c" alt="Project 8">
-            <img src="https://images.unsplash.com/photo-1497366858526-0766cadbe8fa" alt="Project 9">
-            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2" alt="Project 10">
-            <img src="img/proyecto1.jpg" alt="Project 1">
-            <img src="img/proyecto2.jpg" alt="Project 2">
-            <img src="img/proyecto3.jpg" alt="Project 3">
-            <img src="img/proyecto4.jpg" alt="Project 4">
-            <img src="img/proyecto5.jpg" alt="Project 5">
-            <img src="img/proyecto6.jpg" alt="Project 6">
-            <img src="img/proyecto7.jpg" alt="Project 7">
-            <img src="img/proyecto8.jpg" alt="Project 8">
-            <img src="img/proyecto9.jpg" alt="Project 9">
-            <img src="img/proyecto10.jpg" alt="Project 10">
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <footer id="footer"></footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4>Adrián Lodos Trinidad</h4>
+                    <p>Full Stack Developer Junior apasionado por crear soluciones web innovadoras y funcionales, con un fuerte compromiso por el aprendizaje continuo y la excelencia técnica.</p>
+                    <div class="social-icons">
+                        <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/yourusername"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/yourusername"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Sobre mí</a></li>
+                        <li><a href="#certificates"><i class="fas fa-chevron-right"></i> Certificados</a></li>
+                        <li><a href="#skills"><i class="fas fa-chevron-right"></i> Habilidades</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4>Contacto</h4>
+                    <ul class="list-unstyled contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>email@example.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+34 XXX XXX XXX</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>España</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="copyright">
+                © 2023 Adrián Lodos Trinidad. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <script src="scripts.js" defer></script>
 </body>
 </html>

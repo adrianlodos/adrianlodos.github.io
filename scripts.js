@@ -1,168 +1,324 @@
-// Esperar a que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', () => {
-    // Selectores principales
-    const navLinks = document.querySelector('.nav-links');
-    const quoteModal = document.querySelector('.quote-modal');
-    const quoteButton = document.querySelector('.cta-button');
-    const closeQuoteModal = document.querySelector('.quote-modal .close');
-    const viewGalleryBtn = document.querySelector('.view-gallery-btn');
-    const galleryModal = document.querySelector('.gallery-modal');
-    const modalClose = document.querySelector('.modal-close');
-    const galleryModalContent = document.querySelector('.gallery-modal-content');
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar');
+    const navbarBrand = document.querySelector('.navbar-brand');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-    // Array de imágenes para la galería
-    const galleryImages = [
-        'https://images.unsplash.com/photo-1497366216548-37526070297c',
-        'https://images.unsplash.com/photo-1497366672149-e5e4b4d34eb3',
-        'img/proyecto1.jpg',
-        'img/proyecto2.jpg',
-        'img/proyecto3.jpg',
-        'img/proyecto4.jpg',
-        'img/proyecto5.jpg',
-        'img/proyecto6.jpg',
-        'img/proyecto7.jpg',
-        'img/proyecto8.jpg',
-        'img/proyecto9.jpg',
-        'img/proyecto10.jpg'
-    ];
+    // Enhanced navbar scroll behavior
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    // Cargar imágenes en la galería modal
-    if (galleryModalContent) {
-        galleryImages.forEach(imgSrc => {
-            const galleryItem = document.createElement('div');
-            galleryItem.className = 'gallery-item';
-            const img = document.createElement('img');
-            img.src = imgSrc;
-            img.alt = 'Ventana';
-            galleryItem.appendChild(img);
-            galleryModalContent.appendChild(galleryItem);
-        });
-    }
+        if (scrollTop > 50) {
+            navbar.classList.add('scrolled');
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                navbar.style.transform = 'translateY(0)';
+            }
+        } else {
+            navbar.classList.remove('scrolled');
+            navbar.style.transform = 'translateY(0)';
+        }
+        lastScrollTop = scrollTop;
+    });
 
-    // Funcionalidad del modal de presupuesto
-    if (quoteButton && quoteModal && closeQuoteModal) {
-        quoteButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            quoteModal.classList.add('show');
-        });
+    // Active link handling
+    function setActiveLink() {
+        const sections = document.querySelectorAll('section');
+        const scrollPosition = window.scrollY + 100;
 
-        closeQuoteModal.addEventListener('click', () => {
-            quoteModal.classList.remove('show');
-        });
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            const sectionId = section.getAttribute('id');
 
-        quoteModal.addEventListener('click', (e) => {
-            if (e.target === quoteModal) {
-                quoteModal.classList.remove('show');
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
             }
         });
     }
 
-    // Funcionalidad del formulario de presupuesto
-    const quoteForm = document.querySelector('#quote-form');
-    if (quoteForm) {
-        quoteForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(quoteForm);
+    window.addEventListener('scroll', setActiveLink);
+    setActiveLink(); // Initial call
 
-            try {
-                const response = await fetch(quoteForm.action, {
-                    method: quoteForm.method,
-                    body: formData
+    // Smooth scroll with error handling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // Enhanced mobile menu behavior
+    if (navbarToggler) {
+        navbarToggler.addEventListener('click', () => {
+            document.querySelector('.navbar-collapse').classList.toggle('show');
+        });
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        if (navbarCollapse.classList.contains('show') &&
+            !navbar.contains(e.target)) {
+            navbarCollapse.classList.remove('show');
+            navbarToggler.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Initial visibility check for sections
+    const sections = document.querySelectorAll('.section');
+
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px'
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+
+    // Enhanced scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+
+                // Animate skill bars when they come into view
+                if (entry.target.classList.contains('skill-container')) {
+                    entry.target.querySelectorAll('.skill-progress').forEach(bar => {
+                        const progress = bar.getAttribute('data-progress');
+                        bar.style.width = progress;
+                    });
+                }
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px'
+    });
+
+    // Observe all sections and skill containers
+    document.querySelectorAll('.section, .skill-container').forEach(el => observer.observe(el));
+
+    // Form validation and animation
+    const contactForm = document.querySelector('#contact form');
+    const formInputs = document.querySelectorAll('.form-control');
+
+    formInputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.closest('.mb-3').classList.add('focused');
+        });
+
+        input.addEventListener('blur', function() {
+            if (!this.value) {
+                this.closest('.mb-3').classList.remove('focused');
+            }
+        });
+    });
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Basic validation
+            let isValid = true;
+            formInputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.classList.add('is-invalid');
+                } else {
+                    input.classList.remove('is-invalid');
+                }
+            });
+
+            if (isValid) {
+                // Show success message
+                const successAlert = document.createElement('div');
+                successAlert.className = 'alert alert-success mt-3';
+                successAlert.textContent = '¡Mensaje enviado con éxito!';
+                contactForm.appendChild(successAlert);
+
+                // Reset form
+                setTimeout(() => {
+                    contactForm.reset();
+                    successAlert.remove();
+                }, 3000);
+            }
+        });
+    }
+
+    // Initialize typing effect
+    if (document.querySelector('#typed-text')) {
+        new Typed('#typed-text', {
+            strings: ['Full Stack Developer Junior', 'Web Developer', 'Problem Solver'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+    }
+
+    // Particles.js initialization
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "repulse": {
+                        "distance": 100,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    }
+
+    // Certificate slider functionality
+    function initializeSlider() {
+        const track = document.querySelector('.certificates-track');
+        const cards = document.querySelectorAll('.certificate-card');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+
+        if (track && cards.length > 0) {
+            function updateSlider(smooth = true) {
+                if (!smooth) {
+                    track.style.transition = 'none';
+                }
+                const cardWidth = 100 / cards.length;
+                const offset = -currentIndex * cardWidth;
+                track.style.transform = `translateX(${offset}%)`;
+
+                if (!smooth) {
+                    track.offsetHeight;
+                    track.style.transition = 'transform 0.5s ease';
+                }
+
+                cards.forEach((card, index) => {
+                    card.style.opacity = index === currentIndex ? '1' : '0.5';
+                    card.style.transform = index === currentIndex ? 'scale(1)' : 'scale(0.95)';
                 });
 
-                const result = await response.text();
-                if (result.trim() === "success") {
-                    alert("Solicitud enviada con éxito. Te contactaremos pronto.");
-                } else {
-                    alert("Hubo un error al enviar la solicitud. Por favor, inténtalo más tarde.");
-                }
-
-                if (quoteModal) {
-                    quoteModal.classList.remove('show');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert("No se pudo enviar la solicitud. Intenta más tarde.");
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
             }
-        });
+
+            // Navigation buttons
+            document.querySelector('.prev-btn')?.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                updateSlider();
+            });
+
+            document.querySelector('.next-btn')?.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % cards.length;
+                updateSlider();
+            });
+
+            // Initialize
+            updateSlider(false);
+
+            // Auto-sliding
+            let autoSlideInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % cards.length;
+                updateSlider();
+            }, 5000);
+
+            // Pause on hover
+            track.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+            track.addEventListener('mouseleave', () => {
+                autoSlideInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % cards.length;
+                    updateSlider();
+                }, 5000);
+            });
+        }
     }
 
-    // Funcionalidad de la galería modal
-    if (viewGalleryBtn && galleryModal && modalClose) {
-        viewGalleryBtn.addEventListener('click', () => {
-            galleryModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
-
-        modalClose.addEventListener('click', () => {
-            galleryModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        galleryModal.addEventListener('click', (e) => {
-            if (e.target === galleryModal) {
-                galleryModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-    }
-
-    // Inicialización del carrusel
-    const carousel = document.querySelector('.carousel');
-    const carouselPrevBtn = document.querySelector('.carousel-btn.prev');
-    const carouselNextBtn = document.querySelector('.carousel-btn.next');
-    let currentCarouselSlide = 0;
-    const carouselSlides = document.querySelectorAll('.carousel-item');
-
-    if (carousel && carouselPrevBtn && carouselNextBtn && carouselSlides.length > 0) {
-        // Función para mover el carrusel
-        const moveToCarouselSlide = (slide) => {
-            carousel.style.transform = `translateX(-${slide * 100}%)`;
-        };
-
-        // Event listeners para los botones
-        carouselPrevBtn.addEventListener('click', () => {
-            currentCarouselSlide = currentCarouselSlide > 0 ? currentCarouselSlide - 1 : carouselSlides.length - 1;
-            moveToCarouselSlide(currentCarouselSlide);
-        });
-
-        carouselNextBtn.addEventListener('click', () => {
-            currentCarouselSlide = currentCarouselSlide < carouselSlides.length - 1 ? currentCarouselSlide + 1 : 0;
-            moveToCarouselSlide(currentCarouselSlide);
-        });
-
-        // Auto-play del carrusel
-        setInterval(() => {
-            currentCarouselSlide = currentCarouselSlide < carouselSlides.length - 1 ? currentCarouselSlide + 1 : 0;
-            moveToCarouselSlide(currentCarouselSlide);
-        }, 3000);
-    }
-
-    // Inicialización del slider principal
-    const sliderContainer = document.querySelector('.slider-container');
-    const heroSlides = document.querySelectorAll('.slide');
-    const heroPrevBtn = document.querySelector('.slider-btn.prev');
-    const heroNextBtn = document.querySelector('.slider-btn.next');
-    let currentHeroIndex = 0;
-
-    function updateHeroSlider() {
-        const offset = currentHeroIndex * -50; // Mueve el slider
-        sliderContainer.style.transform = `translateX(${offset}%)`;
-    }
-
-    heroPrevBtn.addEventListener('click', () => {
-        currentHeroIndex = (currentHeroIndex === 0) ? heroSlides.length - 1 : currentHeroIndex - 1;
-        updateHeroSlider();
-    });
-
-    heroNextBtn.addEventListener('click', () => {
-        currentHeroIndex = (currentHeroIndex === heroSlides.length - 1) ? 0 : currentHeroIndex + 1;
-        updateHeroSlider();
-    });
-
-    // Auto-Slide (opcional)
-    setInterval(() => {
-        currentHeroIndex = (currentHeroIndex === heroSlides.length - 1) ? 0 : currentHeroIndex + 1;
-        updateHeroSlider();
-    }, 5000); // Cambia cada 5 segundos
+    // Call this function when document is ready
+    initializeSlider();
 });
