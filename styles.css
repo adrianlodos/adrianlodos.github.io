@@ -530,7 +530,7 @@ body {
     box-shadow: 0 0 30px rgba(0, 206, 201, 0.4);
     transition: all 0.3s ease;
     object-fit: cover;
-    object-position: -20px center; /* Mueve la imagen dentro de su contenedor */    
+    object-position: -7px -99px; /* Mueve la imagen dentro de su contenedor */    
 }
 
 .profile-img:hover {
